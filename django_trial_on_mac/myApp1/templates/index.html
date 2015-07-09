@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+    <title>Danoram's Django App!</title>
+</head>
+<body>
+<h1>Successfully loaded the index page</h1>
+<!--this is syntax for static files. make sure to have this in settings.py
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    'myApp1/static/',
+) -->
+{% load staticfiles %}
+<img src='{% static "pylogo.jpg" %}' alt="My image"/>
+<form action="{% url 'confirmation_sent' %}">
+    <input type="submit" value="Go to next Page">
+</form>
+<h6>Django app created by Daniel Oram. danieloramnz@gmail.com</h6>
+</body>
+</html>

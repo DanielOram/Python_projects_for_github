@@ -1,0 +1,82 @@
+<!--
+<div>Send an email
+  <form action= '{% url confirmation_sent%}' method="POST">
+      <input type="submit" value="Toggle" id="toggle1" />
+  </form>
+</div>
+-->
+
+
+
+
+#simple model that takes names and email addresses and adds them to an address book.
+class Entity(models.Model):
+    #choice options - brands of computer
+    APPLE = "AP"
+    HEWLETT_PACKARD = "HP"
+    DELL = "DE"
+    TOSHIBA = "TB"
+    SAMSUNG = "SG"
+    ACER = "AC"
+    ASUS = "AS"
+    SONY = "SONY"
+    LG = "LG"
+    OTHER = "OT"
+    BRAND = (
+        (APPLE, 'Apple'),
+        (HEWLETT_PACKARD, 'Hewlett Packard'),
+        (DELL, 'Dell'),
+        (TOSHIBA, 'Toshiba'),
+        (SAMSUNG, 'Samsumg'),
+        (ACER, 'Acer'),
+        (ASUS, 'Asus'),
+        (SONY, 'Sony'),
+        (LG, 'LG'),
+        (OTHER, 'Other')
+    )
+
+    #input data fields
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100,null=False,unique=True)
+    questionnaire = models.CharField(max_length=2,choices=BRAND,default=OTHER)
+
+
+    def is_not_common(self):
+        return self.BRAND in self.OTHER
+
+#model that collects number of submissions
+class Choice(models.Model):
+    entity = models.ForeignKey(Entity)
+    choice = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+
+
+
+    192.168.1.221
+
+
+
+
+
+
+
+        sender = 'danieloramnz@gmail.com'
+    receivers = ['danoram1@xtra.co.nz']
+
+    message = """From: From Person <danieloramnz@gmail.com>
+    To: To Person <danoram1@xtra.co.nz>
+    Subject: SMTP e-mail test
+
+    This is a test e-mail message.
+    """
+
+    def trySend(self):
+        try:
+           smtpObj = smtplib.SMTP('192.168.1.221',25,local_hostname='localhost')
+           smtpObj.sendmail(self.sender, self.receivers, self.message)
+           print("Successfully sent email")
+           return "Successfully sent email"
+        except smtplib.SMTPException:
+           print("Error: unable to send email")
+           return "Error: unable to send email"
