@@ -40,5 +40,6 @@ def index(request):
 def images(request):
     #debugging
     #retrieve all uploaded images.
+    #Image.delete()
     images = Image.objects.all()
     return render(request, 'images.html', {'images': images})
