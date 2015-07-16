@@ -3,6 +3,7 @@ Showcase of python projects I have made
 
 List of project descriptions:
 
+- FileUploaderProject -> this is my first attempt at usings forms in python to upload files and retrieve them with custom file handlers.
 - One_Liner_Python_Games -> this contains various attempts to create 
   simple python programs that create visual mazes in as little code as possible
 - http_python -> this contains various scripts that make http requests.
