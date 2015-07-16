@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Images</h1>
+<!--List the files already uploaded to the webapp. put this on success page-->
+    <div id="list_of_Images">
+        {% if images %}
+        <ul>
+            <!--Iterate Images stored in media directory and display a link for each -->
+            {% for image in images %}
+            <li><a href='{{ image.imageFile.url }}'>{{ image.imageFile.name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>There are no Images that have been previously uploaded :(</p>
+        {% endif %}
+    </div>
+</body>
+</html>

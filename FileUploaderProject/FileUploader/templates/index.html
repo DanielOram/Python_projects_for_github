@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+    <title>Daniel Oram's FileUploading Django Project</title>
+</head>
+<body>
+<div class="container">
+    <div id="buffer"></div>
+    <div id="panel">
+        <!--redirect to the success page after form is submitted in future. -->
+        <form id="form" action="{% url 'index' %}" method="post" enctype="multipart/form-data">
+            <!-- don't need to code an input for the file upload because it is already defined in the forms.py file!  -->
+            <!--<input id="input" type="file" value="Enter Image here for upload" width="100">-->
+
+            <!-- I need csrf_token because I used RequestContext in the view. It's a security feature. -->
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+            <h4>{{ form.imageFile.label }}</h4>
+            <h6>{{ form.imageFile.help_text }}</h6>
+
+            <p style="padding: 20px;">
+                {{ form.imageFile.error_messages }}
+                {{ form.imageFile }}
+                <input type="submit" value="Submit" width="25">
+            </p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
