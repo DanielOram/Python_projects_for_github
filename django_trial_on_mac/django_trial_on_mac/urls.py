@@ -19,7 +19,7 @@ from myApp1.views import index, confirmation_sent
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', index),
+    url(r'^$', index, name='index'),
     url(r'^confirmation_sent/$', confirmation_sent, name='confirmation_sent')
 
 ]
