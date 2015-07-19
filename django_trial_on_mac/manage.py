@@ -7,4 +7,8 @@ if __name__ == "__main__":
 
     from django.core.management import execute_from_command_line
 
+    #sys.path += '~/GitHub/Python_projects_for_github/django_trial_on_mac'
+
     execute_from_command_line(sys.argv)
+
+

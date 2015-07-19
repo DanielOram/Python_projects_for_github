@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
-from myApp1.models import sendEmail
+#from myApp1.models import sendEmail
 # Create your views here.
 
 #home page view
