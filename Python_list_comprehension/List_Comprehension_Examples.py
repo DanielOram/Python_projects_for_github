@@ -27,5 +27,7 @@ seq6 = [[x,len(x)] for x in unsplit.split()]
 unsplit = "This is a string literal or a sequence of chars followed by a null terminating char"
 seq7 = {x: len(x) for x in unsplit.split()}
 
-
+#lambda expression with list comphension to quicker create a list a 'b' list elements all with 'a' numbered elements
+lam = lambda a,b: [[x for x in range(a)] for x in range(b)]
+print(lam(3,10)) #=> [[0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2]]
 
