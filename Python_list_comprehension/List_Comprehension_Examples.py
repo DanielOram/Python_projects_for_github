@@ -43,10 +43,20 @@ print(fill(t))
 
 #generate a 2d list with a random number of lists each with random elements each unqiue.
 from random import randint
+#generate random input for this example
 randomize = lambda a,b: [list(set([randint(0,9) for x in range(randint(1,a))])) for x in range(b)]
+
 compress_to_unique = lambda x: list(set([j for i in x for j in i]))
 fill = lambda lists: [[f for f in compress_to_unique(lists) if not f in e] for e in lists]
 r = randomize(6,10)
 
 print(r)
 print(fill(r))
+
+#generate a 2d list with a random number of lists each with random elements each unqiue - in one line
+#generate random input
+from random import randint
+randomize = lambda a,b: [list(set([randint(0,9) for x in range(randint(1,a))])) for x in range(b)]
+
+fill_one_liner = lambda lists: [[e for e in list(set([j for i in lists for j in i])) if not e in a_list] for a_list in lists]
+print(fill_one_liner(randomize(5,5)))
