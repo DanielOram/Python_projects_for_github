@@ -31,3 +31,22 @@ seq7 = {x: len(x) for x in unsplit.split()}
 lam = lambda a,b: [[x for x in range(a)] for x in range(b)]
 print(lam(3,10)) #=> [[0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2]]
 
+#lambda expression to create a list with a random number of list elements with a random number of elements
+from random import randint
+r_lam = lambda a,b: [[x for x in range(randint(1,a))] for x in range(randint(1,b))]
+print(r_lam(5,5)) #=> [[0, 1, 2], [0], [0, 1, 2]]
+
+#find the max element of each sublist and return the resulting list
+t = [[0, 1, 2], [0, 1, 2, 3], [0, 1], [0, 1, 2, 3, 4]]
+fill = lambda lists: [max(e) for e in lists]
+print(fill(t))
+
+#generate a 2d list with a random number of lists each with random elements each unqiue.
+from random import randint
+randomize = lambda a,b: [list(set([randint(0,9) for x in range(randint(1,a))])) for x in range(b)]
+compress_to_unique = lambda x: list(set([j for i in x for j in i]))
+fill = lambda lists: [[f for f in compress_to_unique(lists) if not f in e] for e in lists]
+r = randomize(6,10)
+
+print(r)
+print(fill(r))
